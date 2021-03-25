@@ -16,7 +16,7 @@ class SecondaryMultiGPUTrainer(PeriodicCallback, MultiGPUTrainer):
 
     def __init__(self, pstep, **context):
         PeriodicCallback.__init__(self, CallbackLoc.step_start, pstep)
-        context['log_progress'] = context.pop('log_progress', False)
+        context['log_progress'] = context.pop('log_progress', True)
         MultiGPUTrainer.__init__(self, primary=False, **context)
 
     def run(self, sess, step):
