@@ -41,7 +41,6 @@ class Trainer(object):
         # global step
         self.context['log_progress'] = self.context.pop('log_progress', True)
         if self.context['log_progress']:
-            print('Yes')
             self._bar = ProgressBar()
         # total loss, beginning timepoint
         self._log_stats = [0, None]
@@ -141,7 +140,6 @@ class Trainer(object):
                 assert not np.isnan(loss_value)
                 # log one
                 if self.context['log_progress']:
-                    print('---', step, loss_value)
                     self.progress_logger(step, loss_value)
                 # periodic callbacks at step end
                 for cb in self._periodic_callbacks:
